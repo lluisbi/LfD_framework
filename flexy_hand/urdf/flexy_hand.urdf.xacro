@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+
+<robot name="flexy_hand" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find flexy_hand)/urdf/robot_parameters_smaller_names.xacro" />
+    <xacro:include filename="$(find flexy_hand)/urdf/links_joints.xacro" />
+
+    <xacro:m_link_stl name="${link_6_name}"
+              stl_file="package://flexy_hand/meshes/link_6.stl"
+              origin_rpy="0 0 ${deg_180}" origin_xyz="0.23 0 0"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+    
+    <!-- THUMB -->
+    <xacro:m_joint name="${link_6_name}__${link_1_1_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="${thumb_r} ${thumb_p} ${thumb_u}" origin_xyz="${thumb_x} ${thumb_y} ${thumb_z}"
+            parent="${link_6_name}" child="${link_1_1_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_1_1_name}"
+              stl_file="package://flexy_hand/meshes/link_1-1.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0.03 0 0.035"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_1_1_name}__${link_1_2_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 -${deg_4}" origin_xyz="0.025 0 ${thumb_z2}"
+            parent="${link_1_1_name}" child="${link_1_2_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_1_2_name}"
+              stl_file="package://flexy_hand/meshes/link_1-2.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.02 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <!-- INDEX -->
+    <xacro:m_joint name="${link_6_name}__${link_2_1_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="${index_x} ${index_y} ${index_z}"
+            parent="${link_6_name}" child="${link_2_1_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_2_1_name}"
+              stl_file="package://flexy_hand/meshes/link_2-1.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.015 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_2_1_name}__${link_2_2_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 -${deg_4}" origin_xyz="0 0 ${index_z2}"
+            parent="${link_2_1_name}" child="${link_2_2_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_2_2_name}"
+              stl_file="package://flexy_hand/meshes/link_2-2.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.01 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_2_2_name}__${link_2_3_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="-0.02 0 ${index_z3}"
+            parent="${link_2_2_name}" child="${link_2_3_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_2_3_name}"
+              stl_file="package://flexy_hand/meshes/link_2-3.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <!-- LONG -->
+    <xacro:m_joint name="${link_6_name}__${link_3_1_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="${deg_2} 0 0" origin_xyz="${long_x} ${long_y} ${long_z}"
+            parent="${link_6_name}" child="${link_3_1_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_3_1_name}"
+              stl_file="package://flexy_hand/meshes/link_3-1.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.04 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_3_1_name}__${link_3_2_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="-0.02 0 ${long_z2}"
+            parent="${link_3_1_name}" child="${link_3_2_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_3_2_name}"
+              stl_file="package://flexy_hand/meshes/link_3-2.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.01 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_3_2_name}__${link_3_3_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="-0.02 0 ${long_z3}"
+            parent="${link_3_2_name}" child="${link_3_3_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_3_3_name}"
+              stl_file="package://flexy_hand/meshes/link_3-3.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <!-- RING -->
+    <xacro:m_joint name="${link_6_name}__${link_4_1_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="${deg_4} 0 0" origin_xyz="${ring_x} ${ring_y} ${ring_z}"
+            parent="${link_6_name}" child="${link_4_1_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_4_1_name}"
+              stl_file="package://flexy_hand/meshes/link_4-1.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.04 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_4_1_name}__${link_4_2_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="-0.04 0 ${ring_z2}"
+            parent="${link_4_1_name}" child="${link_4_2_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_4_2_name}"
+              stl_file="package://flexy_hand/meshes/link_4-2.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_4_2_name}__${link_4_3_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="-0.01 0 ${ring_z3}"
+            parent="${link_4_2_name}" child="${link_4_3_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_4_3_name}"
+              stl_file="package://flexy_hand/meshes/link_4-3.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <!-- SMALL -->
+    <xacro:m_joint name="${link_6_name}__${link_5_1_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="${deg_4} 0 0" origin_xyz="${small_x} ${small_y} ${small_z}"
+            parent="${link_6_name}" child="${link_5_1_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_5_1_name}"
+              stl_file="package://flexy_hand/meshes/link_5-1.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="-0.02 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_5_1_name}__${link_5_2_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 ${deg_5}" origin_xyz="-0.01 0 ${small_z2}"
+            parent="${link_5_1_name}" child="${link_5_2_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_5_2_name}"
+              stl_file="package://flexy_hand/meshes/link_5-2.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+    <xacro:m_joint name="${link_5_2_name}__${link_5_3_name}" type="revolute"
+            axis_xyz="0 1 0"
+            origin_rpy="0 0 0" origin_xyz="-0.01 0 ${small_z3}"
+            parent="${link_5_2_name}" child="${link_5_3_name}"
+            limit_e="1000" limit_l="0" limit_u="${deg_45}" limit_v="0.5" />
+
+    <xacro:m_link_stl name="${link_5_3_name}"
+              stl_file="package://flexy_hand/meshes/link_5-3.stl"
+              origin_rpy="0 0 -${deg_90}" origin_xyz="0 0 0.02"
+              mass="200"
+              ixx="3.7200666666666673" ixy="0" ixz="0"
+              iyy="3.7200666666666673" iyz="0"
+              izz="5.764416666666667"
+              size="0.448 0.381 0.150" />
+
+</robot>

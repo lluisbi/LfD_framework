@@ -1,0 +1,25 @@
+<launch>
+
+    <!-- Command line argument -->
+    <arg name="real" default="false"/>
+    <arg name="evaluate" default="true"/>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find flexy_hand)/urdf/flexy_hand.urdf.xacro'"/>
+
+    <!-- Combine joint values -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+    </node>
+    
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find flexy_hand)/config/config.rviz"/>
+
+    
+    <node name="capture_emg" pkg="flexy_hand" type="capture_emg.py"/>
+    <!-- node name="decoder" pkg="flexy_hand" type="decoder.py"/ -->
+    <node name="send_sim" pkg="flexy_hand" type="send_sim.py"/>
+    <node if="$(arg real)" name="send_arduino" pkg="flexy_hand" type="send_arduino.py"/>
+    <node if="$(arg evaluate)" name="evaluate_capture_hand_position" pkg="flexy_hand" type="evaluate_capture_hand_position.py"/>
+    <!-- And manually launch the node: evaluate_save_data -->
+
+</launch>

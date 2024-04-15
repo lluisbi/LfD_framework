@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="deg_1" value="0.016622183" />
+  <xacro:property name="deg_2" value="0.033244367" />
+  <xacro:property name="deg_4" value="0.06981317" />
+  <xacro:property name="deg_5" value="0.087266463" />
+  <xacro:property name="deg_10" value="0.174532925" />
+  <xacro:property name="deg_20" value="0.34906585" />
+  <xacro:property name="deg_23" value="0.401425728" />
+  <xacro:property name="deg_25" value="0.436332313" />
+  <xacro:property name="deg_27_5" value="0.479965544" />
+  <xacro:property name="deg_29" value="0.506145483" />
+  <xacro:property name="deg_30" value="0.523598776" />
+  <xacro:property name="deg_35" value="0.610865238" />
+  <xacro:property name="deg_45" value="0.785398163" />
+  <xacro:property name="deg_50" value="0.872664626" />
+  <xacro:property name="deg_60" value="1.047197551" />
+  <xacro:property name="deg_90" value="1.570796327" />
+  <xacro:property name="deg_110" value="1.919862177" />
+  <xacro:property name="deg_112" value="1.954768762" />
+  <xacro:property name="deg_113" value="1.972222055" />
+  <xacro:property name="deg_114" value="1.989675347" />
+  <xacro:property name="deg_115" value="2.00712864" />
+  <xacro:property name="deg_120" value="2.094395102" />
+  <xacro:property name="deg_125" value="2.181661565" />
+  <xacro:property name="deg_130" value="2.268928028" />
+  <xacro:property name="deg_180" value="3.141592654" />
+
+  <!-- Link names -->
+  <xacro:property name="link_1_1_name" value="thumb0" />
+  <xacro:property name="link_1_2_name" value="thumb1" />
+  <xacro:property name="link_2_1_name" value="index0" />
+  <xacro:property name="link_2_2_name" value="index1" />
+  <xacro:property name="link_2_3_name" value="index2" />
+  <xacro:property name="link_3_1_name" value="long0" />
+  <xacro:property name="link_3_2_name" value="long1" />
+  <xacro:property name="link_3_3_name" value="long2" />
+  <xacro:property name="link_4_1_name" value="ring0" />
+  <xacro:property name="link_4_2_name" value="ring1" />
+  <xacro:property name="link_4_3_name" value="ring2" />
+  <xacro:property name="link_5_1_name" value="small0" />
+  <xacro:property name="link_5_2_name" value="small1" />
+  <xacro:property name="link_5_3_name" value="small2" />
+  <xacro:property name="link_6_name" value="hand_body" />
+
+  <!-- THUMB measurements -->
+  <xacro:property name="thumb_x" value="0.465" />
+  <xacro:property name="thumb_y" value="0.430" />
+  <xacro:property name="thumb_z" value="0.550" />
+  <xacro:property name="thumb_z2" value="0.355" />
+  <xacro:property name="thumb_r" value="-${deg_29}" />
+  <xacro:property name="thumb_p" value="-${deg_35}" />
+  <xacro:property name="thumb_u" value="-${deg_112}" />
+
+  <!-- INDEX measurements -->
+  <xacro:property name="index_x" value="0.060" />
+  <xacro:property name="index_y" value="0.165" />
+  <xacro:property name="index_z" value="1.050" />
+  <xacro:property name="index_z2" value="0.405" />
+  <xacro:property name="index_z3" value="0.255" />
+
+  <!-- LONG measurements -->
+  <xacro:property name="long_x" value="0.060" />
+  <xacro:property name="long_y" value="-0.035" />
+  <xacro:property name="long_z" value="1.010" />
+  <xacro:property name="long_z2" value="0.440" />
+  <xacro:property name="long_z3" value="0.285" />
+
+  <!-- RING measurements -->
+  <xacro:property name="ring_x" value="0.060" />
+  <xacro:property name="ring_y" value="-0.238" />
+  <xacro:property name="ring_z" value="0.955" />
+  <xacro:property name="ring_z2" value="0.420" />
+  <xacro:property name="ring_z3" value="0.270" />
+
+  <!-- SMALL measurements -->
+  <xacro:property name="small_x" value="0.060" />
+  <xacro:property name="small_y" value="-0.433" />
+  <xacro:property name="small_z" value="0.845" />
+  <xacro:property name="small_z2" value="0.350" />
+  <xacro:property name="small_z3" value="0.205" />
+
+</robot>
